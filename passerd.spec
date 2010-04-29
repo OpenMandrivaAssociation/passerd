@@ -49,10 +49,7 @@ echo -e "before you start Passerd for the first time. It will guide you through 
 echo -e "------------------------------------------------------------------------------------------\n"
 
 %preun
-%_service_preun passerd
-
-%postun
-%_service_postun passerd
+%_preun_service passerd
 
 %clean
 %{__rm} -rf %{buildroot}
