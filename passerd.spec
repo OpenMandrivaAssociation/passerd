@@ -43,6 +43,7 @@ touch %{buildroot}/%{_logdir}/passerd.log
 %_pre_useradd passerd /var/lib/passerd /bin/false
 
 %post
+%create_ghostfile %{_logdir}/passerd.log passerd root 640
 echo -e "\n------------------------------------------------------------------------------------------"
 echo -e "Please make sure to read the setup instructions at /usr/share/doc/passerd/USERGUIDE.markdown"
 echo -e "before you start Passerd for the first time. It will guide you through the whole process."
@@ -58,8 +59,8 @@ echo -e "-----------------------------------------------------------------------
 %defattr(-,root,root)
 %doc docs/logo.txt COPYING CREDITS.markdown INSTALL.markdown NEWS.markdown README.markdown USERGUIDE.markdown
 %{_initrddir}/%{name}
-%{_sysconfdir}/sysconfig/%{name}
+%config %{_sysconfdir}/sysconfig/%{name}
 %{python_sitelib}/*
 %{_bindir}/%{name}
 %attr(0750,passerd,root) %{_var}/lib/%{name}
-%attr(0640,passerd,root) %{_logdir}/passerd.log
+%ghost %{_logdir}/passerd.log
