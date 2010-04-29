@@ -3,7 +3,7 @@
 Name:          passerd
 Summary:       A Twitter client that works as an IRC server
 Version:       0.1.1
-Release:       %mkrel 2
+Release:       %mkrel 3
 Source0:       %{checkout}.tar.gz
 Source1:       passerd.initscript
 Source2:       passerd.sysconfig
@@ -11,6 +11,7 @@ URL:           http://passerd.raisama.net
 License:       MIT
 Group:         Networking/IRC
 BuildRoot:     %{_tmppath}/%{name}-buildroot
+BuildArch:	noarch
 BuildRequires: python-devel
 
 Requires: python-daemon
