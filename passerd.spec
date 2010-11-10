@@ -3,7 +3,7 @@
 Name:          passerd
 Summary:       A Twitter client that works as an IRC server
 Version:       0.1.1
-Release:       %mkrel 3
+Release:       %mkrel 4
 Source0:       %{checkout}.tar.gz
 Source1:       passerd.initscript
 Source2:       passerd.sysconfig
@@ -37,7 +37,8 @@ install %{SOURCE1} %{buildroot}/%{_initrddir}/%{name}
 install -d %{buildroot}/%{_sysconfdir}/sysconfig/
 install %{SOURCE2} %{buildroot}/%{_sysconfdir}/sysconfig/%{name}
 install -d %{buildroot}/%{_logdir}
-touch %{buildroot}/%{_logdir}/passerd.log
+install -d %{buildroot}/%{_logdir}/%{name}
+touch %{buildroot}/%{_logdir}/%{name}/%{name}.log
 
 %pre
 %_pre_useradd passerd /var/lib/passerd /bin/false
@@ -63,4 +64,5 @@ echo -e "-----------------------------------------------------------------------
 %{python_sitelib}/*
 %{_bindir}/%{name}
 %attr(0750,passerd,root) %{_var}/lib/%{name}
-%ghost %{_logdir}/passerd.log
+%attr(0750,passerd,adm) %{_logdir}/%{name}/
+%attr(0640,passerd,adm) %ghost %{_logdir}/%{name}/%{name}.log
