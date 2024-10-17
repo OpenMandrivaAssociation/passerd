@@ -7,7 +7,7 @@ Release:       %mkrel 4
 Source0:       %{checkout}.tar.gz
 Source1:       passerd.initscript
 Source2:       passerd.sysconfig
-URL:           http://passerd.raisama.net
+URL:           https://passerd.raisama.net
 License:       MIT
 Group:         Networking/IRC
 BuildRoot:     %{_tmppath}/%{name}-buildroot
