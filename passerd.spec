@@ -3,7 +3,7 @@
 Name:          passerd
 Summary:       A Twitter client that works as an IRC server
 Version:       0.1.1
-Release:       %mkrel 4
+Release:       5
 Source0:       %{checkout}.tar.gz
 Source1:       passerd.initscript
 Source2:       passerd.sysconfig
